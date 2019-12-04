@@ -1,0 +1,40 @@
+<html>
+  <head></head>
+  <script src="/index.js" charset="utf-8"></script>
+  <style>
+    .phrase{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+    }
+
+    .letter {
+      background-color: beige;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+    }
+
+    .letter.guessed {
+      background-color: palevioletred;
+    }
+
+    .word {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-evenly;
+    }
+  </style>
+
+  <body>
+    <div id="root">
+      <div class="phrase"></div>
+      <div class="hint"></div>
+    </div>
+  </body>
+</html>
