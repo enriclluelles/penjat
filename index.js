@@ -1,13 +1,12 @@
 document.addEventListener("DOMContentLoaded", function(event) { 
   const phrases = [
-    {phrase: "This is phrase 1", hint: "This is hint 1"},
-    {phrase: "This is phrase 2", hint: "This is hint 2"},
-    {phrase: "This is phrase 3", hint: "This is hint 3"},
-    {phrase: "This is phrase 4", hint: "This is hint 4"},
-    {phrase: "This is phrase 5", hint: "This is hint 5"},
-    {phrase: "This is phrase 6", hint: "This is hint 6"},
-    {phrase: "This is phrase 7", hint: "This is hint 7"},
-    {phrase: "This is phrase 8", hint: "This is hint 8"}
+    {phrase: "------------ -- LLAMAD - AL --- --- BOMBERO ---- ------------", hint: "Hay un bug"},
+    {phrase: "------------ -- NO - SE - RICK -- - PARECE - FALSO - ------------", hint: "No es verdad"},
+    {phrase: "------------ -- ESCLAVOS - DE - - SU - DESORDEN -- ------------", hint: "Llegan tarde"},
+    {phrase: "------------ --- NADIE - NOS -- ESTÁ - ESPERANDO ------------", hint: "Bernat y el mercado"},
+    {phrase: "------------ --- BUAH - TIO --- -- QUE - BESTIA -- ------------", hint: "Dancarlo"},
+    {phrase: "------------ -- EMOSIDO ----- ---- ENGAÑADO -- ------------", hint: "Faltaron a la verdad"},
+    {phrase: "------------ -- YO - TENGO - UN - -- EFFERALGAN -- ------------", hint: "¿Alguien tiene un ibuprofeno?"}
   ];
 
   function letterTmpl (letter, classes = "") {
@@ -72,7 +71,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   class Phrase {
     constructor(letters, node) {
-      this.words = letters.split(" ");
+      this.words = letters.split(' ');
+      console.log(this.words)
       this.letterSet = new Set();
       letters.split("").map(this.normalize).forEach(l => this.letterSet.add(l));
       this.discovered = new Set();
@@ -99,16 +99,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
       var classes = "";
       var letterToRender = letter;
       if (isLetterOrDigit(letter)) {
-        var letterToRender = "_";
+        var letterToRender = "";
         var normalized = this.normalize(letter);
 
         if (this.guessed.has(normalized)) {
-          classes += "guessed";
+          classes += "guessed ";
         }
         if (this.discovered.has(normalized)) {
+          classes += "discovered "
           letterToRender = letter;
         }
       } else {
+        var letterToRender = "";
+        classes += "empty";
+        var normalized = this.normalize(letter);
       }
       return `<div class="letter ${classes}">${letterToRender}</div>`;
     }
