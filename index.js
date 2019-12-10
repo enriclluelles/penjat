@@ -1,13 +1,12 @@
 document.addEventListener("DOMContentLoaded", function(event) { 
   const phrases = [
-    {phrase: "------------ --- BUAH - TIO --- -- QUE - PASADA -- ------------", hint: "Dancarlo"},
-    {phrase: "------------ --- NADIE - NOS -- ESTÁ - ESPERANDO ------------", hint: "Bernat"},
-    {phrase: "This is phrase 3", hint: "This is hint 3"},
-    {phrase: "This is phrase 4", hint: "This is hint 4"},
-    {phrase: "This is phrase 5", hint: "This is hint 5"},
-    {phrase: "This is phrase 6", hint: "This is hint 6"},
-    {phrase: "This is phrase 7", hint: "This is hint 7"},
-    {phrase: "This is phrase 8", hint: "This is hint 8"}
+    {phrase: "------------ -- LLAMAD - AL --- --- BOMBERO ---- ------------", hint: "Hay un bug"},
+    {phrase: "------------ -- NO - SE - RICK -- - PARECE - FALSO - ------------", hint: "No es verdad"},
+    {phrase: "------------ -- ESCLAVOS - DE - - SU - DESORDEN -- ------------", hint: "Llegan tarde"},
+    {phrase: "------------ --- NADIE - NOS -- ESTÁ - ESPERANDO ------------", hint: "Bernat y el mercado"},
+    {phrase: "------------ --- BUAH - TIO --- -- QUE - BESTIA -- ------------", hint: "Dancarlo"},
+    {phrase: "------------ -- EMOSIDO ----- ---- ENGAÑADO -- ------------", hint: "Faltaron a la verdad"},
+    {phrase: "------------ -- YO - TENGO - UN - -- EFFERALGAN -- ------------", hint: "¿Alguien tiene un ibuprofeno?"}
   ];
 
   function letterTmpl (letter, classes = "") {
