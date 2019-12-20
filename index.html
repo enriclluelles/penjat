@@ -14,13 +14,24 @@
       justify-content: center;
     }
     .game {
+      width: 100%
     }
     .phrase{
-      /*display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-      flex-wrap: wrap;*/
-      max-width: 1180px;
+      widht: 100%;
+    }
+
+    .line, .fake-line {
+      display: flex;
+      justify-content: center;
+    }
+
+    .fake-grid {
+      position: absolute;
+      z-index: -1000;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      width: 100%;
     }
 
     .letter, .fake-letter {
@@ -39,6 +50,11 @@
       margin-right: 4px;
     }
 
+    .fake-letter {
+      background: url(https://i.imgur.com/vq1gg9U.jpg) center center no-repeat;
+      background-size: cover;
+    }
+
     .letter.guessed:not(.discovered) {
       background-color: blue;
     }
@@ -46,26 +62,10 @@
       background: url(https://i.imgur.com/ZhcZpYD.png) center center no-repeat;
       background-size: cover;
     }
-    .fake-letter {
-      background: green;
-    }
-
     .word {
       display: inline-block;
       vertical-align: middle;
     }
-    .word:first-child, .word:last-child {
-      margin-left: 84px;
-    }
-/*    .word:after {
-      content: '';
-      display: inline-block;
-      width: 50px;
-      height: 50px;
-      background-color: green;
-      border-radius: 5px;
-      vertical-align: middle;
-    }*/
     .hint {
       margin-top: 60px;
       padding: 30px 0;

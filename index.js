@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(event) { 
-  const phrases = [
+  const phrases2 = [
     {phrase: "------------ -- LLAMAD - AL --- --- BOMBERO ---- ------------", hint: "Hay un bug"},
     {phrase: "------------ -- NO - SE - RICK -- - PARECE - FALSO - ------------", hint: "No es verdad"},
     {phrase: "------------ -- ESCLAVOS - DE - - SU - DESORDEN -- ------------", hint: "Llegan tarde"},
@@ -7,6 +7,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
     {phrase: "------------ --- BUAH - TIO --- -- QUE - BESTIA -- ------------", hint: "Dancarlo"},
     {phrase: "------------ -- EMOSIDO ----- ---- ENGAÑADO -- ------------", hint: "Faltaron a la verdad"},
     {phrase: "------------ -- YO - TENGO - UN - -- EFFERALGAN -- ------------", hint: "¿Alguien tiene un ibuprofeno?"}
+  ];
+
+  const phrases = [
+    {phrase: "LLAMAD\nAL\nBOMBERO", hint: "Hay un bug"},
+    {phrase: "NO SE RICK\nPARECE\nFALSO", hint: "No es verdad"},
+    {phrase: "ESCLAVOS\nDE SU\nDESORDEN", hint: "Llegan tarde"},
+    {phrase: "NADIE\nNOS ESTÁ\nESPERANDO", hint: "Bernat y el mercado"},
+    {phrase: "BUAH TIO\nQUE BESTIA", hint: "Dancarlo"},
+    {phrase: "EMOSIDO\nENGAÑADO", hint: "Faltaron a la verdad"},
+    {phrase: "YO TENGO UN\nEFFERALGAN", hint: "¿Alguien tiene un ibuprofeno?"}
   ];
 
   function letterTmpl (letter, classes = "") {
@@ -71,6 +81,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   class Phrase {
     constructor(letters, node) {
+      this.lines = letters.split("\n");
       this.words = letters.split(' ');
       console.log(this.words)
       this.letterSet = new Set();
@@ -88,6 +99,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
       this.discovered = new Set()
       this.guessed = new Set()
       this.render()
+    }
+
+    lineLengths() {
+      return this.lines.map(l => l.length)
+    }
+
+    renderLine(line) {
+      const words = line.split(" ")
+      const joindiv = `<div class="fake-letter"></div>`
+      return `<div class="line">${words.map(this.renderWord.bind(this)).join(joindiv)}</div>`
     }
 
     renderWord(word) {
@@ -118,7 +139,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     render() {
-      this.node.innerHTML = this.words.map(this.renderWord.bind(this)).join("")
+      let fakeLines = this.lineLengths().map(l => {
+        if (l % 2 == 0) {
+          return 12
+        }
+        return 11
+      }).map(l => {
+        let content = `<div class="fake-line">`
+        for (var i = 0; i < l; i++) {
+          content = content + `<div class="fake-letter"></div>`
+        }
+        return content + `</div>`
+      }).join("");
+      let game =  this.lines.map(this.renderLine.bind(this)).join("");
+      this.node.innerHTML = `<div class="fake-grid">` + fakeLines + `</div>` + game;
     }
 
     guess(letter) {
