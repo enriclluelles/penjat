@@ -10,13 +10,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
   ];
 
   const phrases = [
-    {phrase: "LLAMAD\nAL\nBOMBERO", hint: "Hay un bug"},
-    {phrase: "NO SE RICK\nPARECE\nFALSO", hint: "No es verdad"},
-    {phrase: "ESCLAVOS\nDE SU\nDESORDEN", hint: "Llegan tarde"},
-    {phrase: "NADIE\nNOS ESTÁ\nESPERANDO", hint: "Bernat y el mercado"},
-    {phrase: "BUAH TIO\nQUE BESTIA", hint: "Dancarlo"},
-    {phrase: "EMOSIDO\nENGAÑADO", hint: "Faltaron a la verdad"},
-    {phrase: "YO TENGO UN\nEFFERALGAN", hint: "¿Alguien tiene un ibuprofeno?"}
+
+    {phrase: " SITGES ES  \n  MEJOR       \n  QUE         \n VILANOVA   ", hint: "Nunca lo dirías"},
+    {phrase: " YOU KNOW   \n  WHAT I      \n  MEAN        \n COLEGA     ", hint: "Ya sabes"},
+    {phrase: " PONME      \n  UN CHUPITO  \n  DE TEQUILA  \n            ", hint: "Nitya"},
+    {phrase: " JUST       \n  LISTEN      \n  Y ENTIENDE  \n EL CONCEPTO", hint: "Hay que escuchar"},
+    {phrase: " DIME       \n  UN          \n  SOFTWARE    \n            ", hint: "Atención al cliente"},
+    {phrase: " VIVA RUBY  \n  VIVA RAILS  \n VIVA EL ORDEN\n Y LA LEY   ", hint: "España"},
+    {phrase: "            \n  VIVIMOS     \n  DEL DOLOR   \n            ", hint: "All Hands"},        
+    
   ];
 
   function letterTmpl (letter, classes = "") {
